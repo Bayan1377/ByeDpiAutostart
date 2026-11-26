@@ -49,6 +49,7 @@
     <string name="hint_body">1. Выдайте разрешения из списка выше.\n2. Откройте ByeByeDPI один раз и разрешите VPN — иначе система не даст его запустить.\n3. Включите автоматизацию и отметьте приложения в нужном списке: «Приложения ByeByeDPI» или «Приложения через VPN».\n\nЕсли у ByeByeDPI включён «Always-on VPN», выключите его: иначе система поднимет VPN обратно после остановки.</string>
 
     <string name="action_update">Проверить обновление</string>
+    <string name="action_app_update">Обновление</string>
     <string name="action_theme">Сменить тему</string>
     <string name="action_dark_theme">Тёмная тема</string>
     <string name="action_light_theme">Светлая тема</string>
@@ -170,8 +171,11 @@
     <string name="share_apk_failed">Не удалось подготовить APK</string>
     <string name="qr_title">Передать приложение по QR</string>
     <string name="qr_hint">Отсканируйте QR на другом телефоне в той же Wi-Fi сети:\n%1$s</string>
-    <string name="qr_hint_github">Отсканируйте QR — APK скачается с GitHub:\n%1$s</string>
+    <string name="qr_hint_github">Отсканируйте QR другим телефоном — APK скачается с GitHub. Если камера не читает QR, откройте ссылку ниже:</string>
     <string name="qr_no_wifi">Нет Wi-Fi — QR-передача работает в одной сети</string>
+    <string name="qr_open_link">Открыть ссылку</string>
+    <string name="qr_copy_link">Скопировать</string>
+    <string name="qr_copied">Ссылка скопирована</string>
     <string name="qr_close">Закрыть</string>
     <string name="defaults_set">Список целей сброшен к значениям по умолчанию</string>
     <string name="byedpi_setup_title">Подбор и белый список</string>

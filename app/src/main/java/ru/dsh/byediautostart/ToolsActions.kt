@@ -1,8 +1,11 @@
 package ru.dsh.byediautostart
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.view.Gravity
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -64,16 +67,31 @@ object ToolsActions {
 
         val qrSize = (280 * activity.resources.displayMetrics.density).toInt()
         val image = ImageView(activity).apply {
-            setImageBitmap(QrShareServer.qrBitmap(url, 720))
             scaleType = ImageView.ScaleType.FIT_CENTER
             setBackgroundColor(Color.WHITE)
             setPadding(12, 12, 12, 12)
         }
+        try {
+            image.setImageBitmap(QrShareServer.qrBitmap(url, 720))
+        } catch (e: Exception) {
+            image.visibility = android.view.View.GONE
+        }
         val hint = TextView(activity).apply {
-            text = activity.getString(if (isGithub) R.string.qr_hint_github else R.string.qr_hint, url)
+            text = if (isGithub) {
+                activity.getString(R.string.qr_hint_github)
+            } else {
+                activity.getString(R.string.qr_hint, url)
+            }
             textSize = 12f
             gravity = Gravity.CENTER
             setPadding(0, 12, 0, 0)
+            setTextIsSelectable(true)
+        }
+        val link = TextView(activity).apply {
+            text = url
+            textSize = 11f
+            gravity = Gravity.CENTER
+            setPadding(0, 8, 0, 0)
             setTextIsSelectable(true)
         }
         val container = LinearLayout(activity).apply {
@@ -82,18 +100,35 @@ object ToolsActions {
             setPadding(32, 8, 32, 0)
             addView(image, LinearLayout.LayoutParams(qrSize, qrSize))
             addView(hint)
+            addView(link)
         }
 
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.qr_title)
             .setView(container)
-            .setPositiveButton(R.string.qr_close, null)
+            .setPositiveButton(R.string.qr_open_link) { _, _ -> openUrl(activity, url) }
+            .setNeutralButton(R.string.qr_copy_link) { _, _ -> copyUrl(activity, url) }
+            .setNegativeButton(R.string.qr_close, null)
             .setOnDismissListener { server?.stop() }
             .create()
             .also { dialog ->
                 dialog.window?.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                 dialog.show()
             }
+    }
+
+    private fun openUrl(activity: Activity, url: String) {
+        try {
+            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        } catch (e: Exception) {
+            Toast.makeText(activity, R.string.app_update_error, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun copyUrl(activity: Activity, url: String) {
+        val clipboard = activity.getSystemService(ClipboardManager::class.java)
+        clipboard?.setPrimaryClip(ClipData.newPlainText("ByeDpiAutostart", url))
+        Toast.makeText(activity, R.string.qr_copied, Toast.LENGTH_SHORT).show()
     }
 
     fun resetDefaultTargets(activity: Activity) {
