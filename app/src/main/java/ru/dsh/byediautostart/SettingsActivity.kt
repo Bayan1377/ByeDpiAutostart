@@ -53,6 +53,15 @@ class SettingsActivity : AppCompatActivity() {
             setBackgroundResource(ThemeManager.headerRes(this@SettingsActivity))
             setNavigationIcon(R.drawable.ic_arrow_back)
             setNavigationOnClickListener { finish() }
+            inflateMenu(R.menu.settings_menu)
+            setOnMenuItemClickListener { item ->
+                if (item.itemId == R.id.action_app_update) {
+                    AppUpdateChecker.checkNow(this@SettingsActivity)
+                    true
+                } else {
+                    false
+                }
+            }
         }
         root.addView(
             toolbar,
@@ -325,11 +334,6 @@ class SettingsActivity : AppCompatActivity() {
         tools.findViewById<View>(R.id.btnDefaultApps).setOnClickListener {
             ToolsActions.resetDefaultTargets(this)
         }
-        val update = MaterialButton(this).apply {
-            text = getString(R.string.app_update_check)
-            setOnClickListener { AppUpdateChecker.checkNow(this@SettingsActivity) }
-        }
-        (tools as ViewGroup).addView(update)
     }
 
     private fun buildByeDpiDescription(parent: LinearLayout) {
