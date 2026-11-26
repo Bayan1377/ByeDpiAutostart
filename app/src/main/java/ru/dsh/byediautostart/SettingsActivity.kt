@@ -307,7 +307,7 @@ class SettingsActivity : AppCompatActivity() {
         body.addView(transparencyLabel)
         val transparency = Slider(this).apply {
             valueFrom = 0f
-            valueTo = 60f
+            valueTo = 90f
             stepSize = 1f
             value = prefs.cardTransparency.toFloat()
         }

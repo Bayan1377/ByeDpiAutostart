@@ -64,10 +64,10 @@ class Prefs(context: Context) {
         get() = sp.getBoolean(KEY_WALLPAPER, true)
         set(value) = sp.edit().putBoolean(KEY_WALLPAPER, value).apply()
 
-    /** Прозрачность карточек в процентах: 0 — непрозрачные, 60 — сильно прозрачные. */
+    /** Прозрачность карточек в процентах: 0 — непрозрачные, 90 — почти прозрачные. */
     var cardTransparency: Int
-        get() = sp.getInt(KEY_CARD_TRANSPARENCY, 28).coerceIn(0, 60)
-        set(value) = sp.edit().putInt(KEY_CARD_TRANSPARENCY, value.coerceIn(0, 60)).apply()
+        get() = sp.getInt(KEY_CARD_TRANSPARENCY, 28).coerceIn(0, 90)
+        set(value) = sp.edit().putInt(KEY_CARD_TRANSPARENCY, value.coerceIn(0, 90)).apply()
 
     /** Палитра акцента: teal / violet / emerald / amber / graphite. */
     var palette: String
