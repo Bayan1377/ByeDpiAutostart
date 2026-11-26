@@ -80,8 +80,8 @@ class SettingsActivity : AppCompatActivity() {
         buildByeDpiDescription(content)
         buildGithubSection(content)
 
-        StatusBarCard.apply(this, root)
         setContentView(root)
+        StatusBarCard.apply(this, root)
         CardStyler.apply(this, root)
     }
 
