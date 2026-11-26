@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="text_primary">#12151C</color>
+    <color name="text_secondary">#5B6472</color>
+
+    <color name="bg_top">#EDF3FF</color>
+    <color name="bg_bottom">#F8FAFF</color>
+    <color name="card_bg">#B8FFFFFF</color>
+    <color name="card_stroke">#552F6BFF</color>
+    <color name="hint_bg">#B8FFFFFF</color>
+    <color name="dialog_bg">#F2FFFFFF</color>
+    <color name="header_start">#2F6BFF</color>
+    <color name="header_end">#7A5CFF</color>
+
+    <color name="accent">#2F6BFF</color>
+    <color name="palette_teal">#2F7D7A</color>
+    <color name="palette_blue">#2F6BFF</color>
+    <color name="palette_violet">#6D4AFF</color>
+    <color name="palette_emerald">#1F8A5B</color>
+    <color name="palette_amber">#B86B12</color>
+    <color name="palette_graphite">#4A5568</color>
+    <color name="palette_on_primary">#FFFFFF</color>
+    <color name="vpn_button_unselected">#F2F5FF</color>
+    <color name="on_accent">#FFFFFF</color>
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.ByeDpi.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/TextAppearance.ByeDpi.Section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vpn_choice_title"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tvVpnChoiceHint"
+            style="@style/TextAppearance.ByeDpi.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/vpn_choice_hint_auto"
+            android:textColor="@color/text_secondary" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleVpn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVpnAuto"
+                style="@style/Widget.ByeDpi.VpnButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:text="@string/vpn_choice_auto" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVpnByedpi"
+                style="@style/Widget.ByeDpi.VpnButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:text="@string/vpn_choice_byedpi" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVpnCustom"
+                style="@style/Widget.ByeDpi.VpnButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="0dp"
+                android:text="@string/vpn_choice_custom" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.ByeDpiAutostart" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:colorBackground">@color/bg_bottom</item>
+        <item name="android:statusBarColor">@color/header_start</item>
+        <item name="android:navigationBarColor">@color/bg_bottom</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">@bool/light_navigation_bar</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialCardViewStyle">@style/Widget.ByeDpi.Card</item>
+        <item name="materialButtonStyle">@style/Widget.ByeDpi.Button</item>
+    </style>
+
+    <style name="Theme.ByeDpiAutostart.Teal" parent="Theme.ByeDpiAutostart">
+        <item name="colorPrimary">@color/palette_teal</item>
+        <item name="colorOnPrimary">@color/palette_on_primary</item>
+        <item name="android:statusBarColor">#123B3B</item>
+    </style>
+
+    <style name="Theme.ByeDpiAutostart.Blue" parent="Theme.ByeDpiAutostart">
+        <item name="colorPrimary">@color/palette_blue</item>
+        <item name="colorOnPrimary">@color/palette_on_primary</item>
+        <item name="android:statusBarColor">#2F6BFF</item>
+    </style>
+
+    <style name="Theme.ByeDpiAutostart.Violet" parent="Theme.ByeDpiAutostart">
+        <item name="colorPrimary">@color/palette_violet</item>
+        <item name="colorOnPrimary">@color/palette_on_primary</item>
+        <item name="android:statusBarColor">#3B2C8F</item>
+    </style>
+
+    <style name="Theme.ByeDpiAutostart.Emerald" parent="Theme.ByeDpiAutostart">
+        <item name="colorPrimary">@color/palette_emerald</item>
+        <item name="colorOnPrimary">@color/palette_on_primary</item>
+        <item name="android:statusBarColor">#145C3B</item>
+    </style>
+
+    <style name="Theme.ByeDpiAutostart.Amber" parent="Theme.ByeDpiAutostart">
+        <item name="colorPrimary">@color/palette_amber</item>
+        <item name="colorOnPrimary">@color/palette_on_primary</item>
+        <item name="android:statusBarColor">#6B3F0E</item>
+    </style>
+
+    <style name="Theme.ByeDpiAutostart.Graphite" parent="Theme.ByeDpiAutostart">
+        <item name="colorPrimary">@color/palette_graphite</item>
+        <item name="colorOnPrimary">@color/palette_on_primary</item>
+        <item name="android:statusBarColor">#1F2937</item>
+    </style>
+
+    <style name="Widget.ByeDpi.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">28dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/card_bg</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/card_stroke</item>
+    </style>
+
+    <style name="Widget.ByeDpi.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">24dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="Widget.ByeDpi.VpnButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">18dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">46dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:textColor">@color/vpn_button_text</item>
+        <item name="backgroundTint">@color/vpn_button_bg</item>
+        <item name="strokeColor">@color/card_stroke</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="Widget.ByeDpi.TextButton" parent="Widget.Material3.Button.TextButton">
+        <item name="cornerRadius">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+
+    <style name="TextAppearance.ByeDpi.Toolbar" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.ByeDpi.Section" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.ByeDpi.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+</resources>

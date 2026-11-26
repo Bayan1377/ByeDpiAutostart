@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@drawable/bg_header"
+        android:elevation="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:title="@string/app_name"
+        app:titleTextAppearance="@style/TextAppearance.ByeDpi.Toolbar"
+        app:titleTextColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingStart="32dp"
+            android:paddingTop="24dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="32dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ByeDpi.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            style="@style/TextAppearance.ByeDpi.Section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/state_title"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/tvVpn"
+                            style="@style/TextAppearance.ByeDpi.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/vpn_state_unknown"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvTarget"
+                            style="@style/TextAppearance.ByeDpi.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/target_state_none"
+                            android:textColor="@color/text_secondary" />
+
+                        <TextView
+                            android:id="@+id/tvService"
+                            style="@style/TextAppearance.ByeDpi.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/service_state_idle"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ByeDpi.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextAppearance.ByeDpi.Section"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/automation_title"
+                                android:textColor="@color/text_primary" />
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switchAutomation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvAutomationSummary"
+                            style="@style/TextAppearance.ByeDpi.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/automation_summary_off"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1.15"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.ByeDpi.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            style="@style/TextAppearance.ByeDpi.Section"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/permissions_title"
+                            android:textColor="@color/text_primary" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvAccessibility"
+                                style="@style/TextAppearance.ByeDpi.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/accessibility_no"
+                                android:textColor="@color/text_secondary" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnAccessibility"
+                                style="@style/Widget.ByeDpi.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/btn_accessibility" />
+                        </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.ByeDpi.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
+                        android:text="@string/permission_accessibility_why"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:background="@color/card_stroke" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvOverlay"
+                                style="@style/TextAppearance.ByeDpi.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/overlay_no"
+                                android:textColor="@color/text_secondary" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnOverlay"
+                                style="@style/Widget.ByeDpi.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/btn_overlay" />
+                        </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.ByeDpi.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
+                        android:text="@string/permission_overlay_why"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:background="@color/card_stroke" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvBattery"
+                                style="@style/TextAppearance.ByeDpi.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/battery_no"
+                                android:textColor="@color/text_secondary" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnBattery"
+                                style="@style/Widget.ByeDpi.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/btn_battery" />
+                        </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.ByeDpi.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
+                        android:text="@string/permission_battery_why"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:background="@color/card_stroke" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvByeDpi"
+                                style="@style/TextAppearance.ByeDpi.Body"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/byedpi_no"
+                                android:textColor="@color/text_secondary" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnByeDpi"
+                                style="@style/Widget.ByeDpi.TextButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/btn_byedpi" />
+                        </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.ByeDpi.Body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="2dp"
+                        android:text="@string/permission_byedpi_why"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/updateCard"
+                    style="@style/Widget.ByeDpi.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:id="@+id/tvUpdateTitle"
+                            style="@style/TextAppearance.ByeDpi.Section"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/update_checking_title"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/tvUpdateText"
+                            style="@style/TextAppearance.ByeDpi.Body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="@string/update_checking_text"
+                            android:textColor="@color/text_secondary" />
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/progressUpdate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone"
+                            app:trackCornerRadius="4dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnUpdate"
+                            style="@style/Widget.ByeDpi.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/btn_update_install"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+    <include
+        layout="@layout/view_alerts_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <include
+        layout="@layout/view_vpn_choice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+                <com.google.android.material.button.MaterialButton
+
+                    style="@style/Widget.ByeDpi.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:text="@string/pick_apps" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPickVpnApps"
+                    style="@style/Widget.ByeDpi.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/pick_vpn_apps" />
+
+
+                <TextView
+                    android:id="@+id/tvHint"
+                android:background="@drawable/bg_hint"
+                android:padding="14dp"
+                    style="@style/TextAppearance.ByeDpi.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hint_body"
+                    android:textColor="@color/text_secondary" />
+
+</LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>
+</LinearLayout>

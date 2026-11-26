@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/alertsCard"
+    style="@style/Widget.ByeDpi.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/TextAppearance.ByeDpi.Section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alerts_title"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tvAlertsSummary"
+            style="@style/TextAppearance.ByeDpi.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/alerts_none"
+            android:textColor="@color/text_secondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAlerts"
+            style="@style/Widget.ByeDpi.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:text="@string/alerts_open" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.ByeDpi.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/TextAppearance.ByeDpi.Section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tools_title"
+            android:textColor="@color/text_primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOpenByeDpi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/tools_open_byedpi" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShareApk"
+                style="@style/Widget.ByeDpi.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tools_share_apk" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnQrShare"
+                style="@style/Widget.ByeDpi.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="@string/tools_qr" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDefaultApps"
+            style="@style/Widget.ByeDpi.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tools_default_apps" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
