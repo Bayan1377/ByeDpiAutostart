@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         prefs = Prefs(this)
         vpnMonitor = VpnMonitor(this)
         UpdateChecker.init(this)
+        AppUpdateChecker.checkOnLaunch(this)
 
         binding.toolbar.inflateMenu(R.menu.main_menu)
         binding.toolbar.setOnMenuItemClickListener { item: MenuItem ->

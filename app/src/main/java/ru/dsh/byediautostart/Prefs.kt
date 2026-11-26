@@ -76,8 +76,18 @@ class Prefs(context: Context) {
 
     /** Прямая ссылка на APK в релизе GitHub для QR. */
     var githubApkUrl: String
-        get() = sp.getString(KEY_GITHUB_APK_URL, "") ?: ""
-        set(value) = sp.edit().putString(KEY_GITHUB_APK_URL, value).apply()
+        get() {
+            val stored = sp.getString(KEY_GITHUB_APK_URL, "") ?: ""
+            return if (stored.isBlank() || stored.contains("github.com/.../")) {
+                DEFAULT_GITHUB_APK_URL
+            } else {
+                stored
+            }
+        }
+        set(value) {
+            val url = value.trim().ifBlank { DEFAULT_GITHUB_APK_URL }
+            sp.edit().putString(KEY_GITHUB_APK_URL, url).apply()
+        }
 
     var lastUpdateCheck: Long
         get() = sp.getLong(KEY_LAST_UPDATE_CHECK, 0L)
@@ -166,6 +176,8 @@ class Prefs(context: Context) {
         private const val KEY_WALLPAPER = "wallpaper_background"
         private const val KEY_CARD_TRANSPARENCY = "card_transparency"
         private const val KEY_PALETTE = "palette"
+        const val DEFAULT_GITHUB_APK_URL =
+            "https://github.com/Bayan1377/ByeDpiAutostart/releases/latest/download/ByeDpiAutostart.apk"
         private const val KEY_GITHUB_APK_URL = "github_apk_url"
 
         const val VPN_MODE_AUTO = "auto"

@@ -325,6 +325,11 @@ class SettingsActivity : AppCompatActivity() {
         tools.findViewById<View>(R.id.btnDefaultApps).setOnClickListener {
             ToolsActions.resetDefaultTargets(this)
         }
+        val update = MaterialButton(this).apply {
+            text = getString(R.string.app_update_check)
+            setOnClickListener { AppUpdateChecker.checkNow(this@SettingsActivity) }
+        }
+        (tools as ViewGroup).addView(update)
     }
 
     private fun buildByeDpiDescription(parent: LinearLayout) {

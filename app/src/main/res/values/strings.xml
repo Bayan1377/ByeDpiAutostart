@@ -99,6 +99,12 @@
     <string name="btn_update_install">Установить</string>
     <string name="btn_update_retry">Повторить</string>
     <string name="btn_update_allow">Разрешить</string>
+    <string name="app_update_check">Проверить обновление приложения</string>
+    <string name="app_update_title">Доступно обновление</string>
+    <string name="app_update_text">Вышла версия %1$s. Скачать APK с GitHub?</string>
+    <string name="app_update_download">Скачать</string>
+    <string name="app_update_latest">У вас последняя версия</string>
+    <string name="app_update_error">Не удалось проверить обновление</string>
 
     <string name="notif_channel_automation">Автозапуск ByeDPI</string>
     <string name="notif_channel_problems">Проблемы автозапуска</string>
