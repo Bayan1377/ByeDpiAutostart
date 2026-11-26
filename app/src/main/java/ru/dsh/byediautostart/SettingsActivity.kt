@@ -1,7 +1,9 @@
 package ru.dsh.byediautostart
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.text.InputType
@@ -20,6 +22,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.slider.Slider
 
@@ -88,34 +91,65 @@ class SettingsActivity : AppCompatActivity() {
     private fun buildVpnSection(parent: LinearLayout) {
         val body = addCard(parent, getString(R.string.settings_vpn_title))
         val group = RadioGroup(this).apply { orientation = RadioGroup.VERTICAL }
-        val apps = VpnAppRegistry.installed(this)
+        val apps = VpnAppRegistry.supported(this)
+        val byPackage = apps.associateBy { it.packageName }
         val noneId = View.generateViewId()
         val none = radio(getString(R.string.settings_vpn_none), noneId, null)
         group.addView(none)
 
-        var checkedId = noneId
+        var selectedId = noneId
         for (app in apps) {
             val id = View.generateViewId()
-            val item = radio(app.label, id, app.packageName)
+            val title = if (app.installed) {
+                app.label
+            } else {
+                getString(R.string.settings_vpn_not_installed, app.label)
+            }
+            val item = radio(title, id, app.packageName)
             group.addView(item)
-            if (app.packageName == prefs.customVpnPackage) checkedId = id
+            if (app.installed && app.packageName == prefs.customVpnPackage) selectedId = id
         }
-        if (apps.isEmpty()) {
-            body.addView(hint(getString(R.string.settings_vpn_empty)))
+        if (apps.none { it.installed }) {
+            body.addView(hint(getString(R.string.settings_vpn_download_hint)))
         }
 
+        var currentId = selectedId
         updating = true
-        group.check(checkedId)
+        group.check(selectedId)
         updating = false
         group.setOnCheckedChangeListener { _, id ->
             if (updating) return@setOnCheckedChangeListener
             val button = group.findViewById<RadioButton>(id)
             val pkg = button?.tag as? String
+            val app = pkg?.let { byPackage[it] }
+            if (app != null && !app.installed) {
+                updating = true
+                group.check(currentId)
+                updating = false
+                showVpnDownloadDialog(app)
+                return@setOnCheckedChangeListener
+            }
+            currentId = id
             prefs.customVpnPackage = pkg
             prefs.vpnMode = if (pkg == null) Prefs.VPN_MODE_AUTO else Prefs.VPN_MODE_CUSTOM
             AutomationController.reloadMode()
         }
         body.addView(group)
+    }
+
+    private fun showVpnDownloadDialog(app: VpnAppRegistry.App) {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(app.label)
+            .setMessage(R.string.settings_vpn_download_message)
+            .setPositiveButton(R.string.settings_vpn_download) { _, _ ->
+                try {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(app.downloadUrl)))
+                } catch (e: Exception) {
+                    Toast.makeText(this, R.string.settings_vpn_download_failed, Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 
     private fun buildDelaySection(parent: LinearLayout) {

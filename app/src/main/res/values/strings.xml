@@ -57,6 +57,11 @@
     <string name="settings_vpn_title">VPN для автоматизации</string>
     <string name="settings_vpn_none">Не выбран (кнопка «+» на главном экране)</string>
     <string name="settings_vpn_empty">Установленных поддерживаемых VPN нет: Призрак, Incy, Happ</string>
+    <string name="settings_vpn_not_installed">%1$s — не установлено</string>
+    <string name="settings_vpn_download_hint">Нажмите на неустановленный VPN, чтобы открыть страницу загрузки.</string>
+    <string name="settings_vpn_download_message">Приложение не установлено. Открыть страницу загрузки?</string>
+    <string name="settings_vpn_download">Скачать</string>
+    <string name="settings_vpn_download_failed">Не удалось открыть страницу загрузки</string>
     <string name="settings_delay_title">Когда выключать VPN</string>
     <string name="settings_delay_15">Через 15 секунд (по умолчанию)</string>
     <string name="settings_delay_10">Через 10 секунд</string>

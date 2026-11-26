@@ -20,8 +20,8 @@ android {
         applicationId = "ru.dsh.byediautostart"
         minSdk = 26
         targetSdk = 34
-        versionCode = 29
-        versionName = "1.25"
+        versionCode = 30
+        versionName = "1.26"
     }
 
     signingConfigs {
